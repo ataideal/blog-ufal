@@ -1,4 +1,4 @@
-class UsersController < ApplicationController
+class UsersController < SiteController
   before_action :authenticate_user!
   after_action :verify_authorized
 
@@ -9,6 +9,10 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    authorize @user
+  end
+
+  def new
     authorize @user
   end
 
