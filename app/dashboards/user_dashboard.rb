@@ -10,10 +10,13 @@ class UserDashboard < Administrate::BaseDashboard
   ATTRIBUTE_TYPES = {
     id: Field::Number,
     email: Field::String,
-    encrypted_password: Field::String,
-    reset_password_token: Field::String,
-    reset_password_sent_at: Field::DateTime,
-    remember_created_at: Field::DateTime,
+    password: Field::String,
+    name: Field::String,
+    role: Field::String.with_options(searchable: true),
+    #encrypted_password: Field::String,
+    #reset_password_token: Field::String,
+    #reset_password_sent_at: Field::DateTime,
+    #remember_created_at: Field::DateTime,
     sign_in_count: Field::Number,
     current_sign_in_at: Field::DateTime,
     last_sign_in_at: Field::DateTime,
@@ -21,8 +24,6 @@ class UserDashboard < Administrate::BaseDashboard
     last_sign_in_ip: Field::String.with_options(searchable: false),
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
-    name: Field::String,
-    role: Field::String.with_options(searchable: false),
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -33,8 +34,10 @@ class UserDashboard < Administrate::BaseDashboard
   COLLECTION_ATTRIBUTES = [
     :id,
     :email,
-    :encrypted_password,
-    :reset_password_token,
+    :name,
+    :role,
+    #:encrypted_password,
+    #:reset_password_token,
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
@@ -42,10 +45,12 @@ class UserDashboard < Administrate::BaseDashboard
   SHOW_PAGE_ATTRIBUTES = [
     :id,
     :email,
-    :encrypted_password,
-    :reset_password_token,
-    :reset_password_sent_at,
-    :remember_created_at,
+    :name,
+    :role,
+    #:encrypted_password,
+    #:reset_password_token,
+    #:reset_password_sent_at,
+    #:remember_created_at,
     :sign_in_count,
     :current_sign_in_at,
     :last_sign_in_at,
@@ -53,8 +58,6 @@ class UserDashboard < Administrate::BaseDashboard
     :last_sign_in_ip,
     :created_at,
     :updated_at,
-    :name,
-    :role,
   ].freeze
 
   # FORM_ATTRIBUTES
@@ -62,23 +65,24 @@ class UserDashboard < Administrate::BaseDashboard
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = [
     :email,
-    :encrypted_password,
-    :reset_password_token,
-    :reset_password_sent_at,
-    :remember_created_at,
+    :password,
+    :name,
+    :role,
+    #:encrypted_password,
+    #:reset_password_token,
+    #:reset_password_sent_at,
+    #:remember_created_at,
     :sign_in_count,
     :current_sign_in_at,
     :last_sign_in_at,
     :current_sign_in_ip,
     :last_sign_in_ip,
-    :name,
-    :role,
   ].freeze
 
   # Overwrite this method to customize how users are displayed
   # across all pages of the admin dashboard.
   #
-  # def display_resource(user)
-  #   "User ##{user.id}"
-  # end
+  def display_resource(user)
+    "User ##{user.name}"
+  end
 end

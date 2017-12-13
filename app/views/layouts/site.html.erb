@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
   <!-- Required meta tags -->
@@ -30,8 +30,9 @@
 </head>
 
 <body>
-    <%= yield %>
-
+<%= render "layouts/site_shared/navigationbar" %>
+<%= yield %>
+<%= render "layouts/site_shared/footer" %>
 
 <!-- Plugins first, then custom js file -->
 <%=javascript_include_tag "versa/js/bundle/bundle.js"%>
@@ -57,4 +58,3 @@
 <%=javascript_include_tag "versa/js/google-map.js"%>
 </body>
 </html>
-
