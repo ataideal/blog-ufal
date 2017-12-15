@@ -47,10 +47,11 @@
         </div><!--post card-->
       <% end %>
       <!--post card-->
-      <nav class="clearfix mt30">
+      <!--<nav class="clearfix mt30">
         <a class="btn btn-light float-right" href="#">Older <i class="fa fa-angle-right"></i></a>
         <a class="btn btn-light disabled"><i class="fa fa-angle-left"></i> Newer</a>
-      </nav>
+      </nav>-->
+      <%= paginate @pubs, window: 2%>
     </div>
     <%= render "layouts/site_shared/sidebar" %>
   </div>

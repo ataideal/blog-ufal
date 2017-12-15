@@ -2,7 +2,7 @@ class Site::HomeController < SiteController
   before_action :set_pub, only: [:show]
 
   def index
-    @pubs = Pub.all
+    @pubs = Pub.all.page params[:page]
     @tags = ActsAsTaggableOn::Tag.most_used(10)
   end
 
