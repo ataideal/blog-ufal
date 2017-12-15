@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light navbar-transparent static-top">
+<nav class="navbar navbar-expand-lg navbar-light navbar-transparent navbar-sticky">
   <div class="navbar-right-col">
     <ul class="list-inline">
 
@@ -16,27 +16,31 @@
       </li>
     </ul>
   </div>
-  <a class="navbar-brand" href="index.html">
-    <img src="images/logo-light.png" alt="" class="logo-visible-desktop">
-    <img src="images/logo.png" alt="" class="logo-hidden-desktop">
-  </a>
+  <%= link_to site_home_index_path, class: "navbar-brand" do %>
+    <img src="<%= asset_path("logo-light.png") %>" alt="" class="logo-visible-desktop logo-default">
+    <img src="<%= asset_path("logo.png") %>" alt="" class="logo-hidden-desktop logo-scroll">
+  <% end %>
+
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <div class="collapse navbar-collapse" id="navbarCollapse">
+  <div class="collapse navbar-collapse" id="navbarCollapse" style="margin-bottom: 25px">
     <ul class="navbar-nav  ml-auto">
-      <% if user_signed_in?%>
-	<li class="nav-item">
-	  <%= link_to "Sair", destroy_user_session_path, method: :delete, class:"btn btn-primary btn-lg"%>
-	</li>
-      <% else%>
-	<li class="nav-item">
-	  <%= link_to "Login", new_user_session_path, class: "btn btn-primary btn-lg"%>
-	</li>
-	<li class="nav-item">
-	  <%= link_to "Cadastre-se", new_user_registration_path, class: "btn btn-success btn-lg"%>
-	</li>
-      <% end%>
+
+      <li class="nav-item dropdown">
+      </li>
+      <% if user_signed_in? %>
+        <li class="nav-item">
+          <%= link_to "Sair", destroy_user_session_path, method: :delete, class: "btn btn-primary btn-lg" %>
+        </li>
+      <% else %>
+        <li class="nav-item">
+          <%= link_to "Login", new_user_session_path, class: "btn btn-primary btn-lg" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Cadastre-se", new_user_registration_path, class: "btn btn-success btn-lg" %>
+        </li>
+      <% end %>
     </ul>
   </div>
 </nav>
