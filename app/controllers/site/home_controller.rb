@@ -3,7 +3,6 @@ class Site::HomeController < SiteController
 
   def index
     @pubs = Pub.all
-    @categories = Category.all
     @tags = ActsAsTaggableOn::Tag.most_used(10)
   end
 

@@ -5,9 +5,7 @@
     <div class="col-md-6 col-lg-5 mr-auto ml-auto">
       <div class="card card-account">
         <div class="card-body">
-	  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-	    <%= devise_error_messages! %>
-
+	        <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
             <div class="form-group">
 	      <%= f.label :name %>
 	      <%= f.text_field :name, autofocus: true, class: "form-control", placeholder: "Digite seu nome"%>
@@ -19,7 +17,7 @@
             <div class="form-group">
 	      <%= f.label :password %>
 	      <% if @minimum_password_length %>
-		<em>(<%= @minimum_password_length %> characters minimum)</em>
+		<em>(<%= @minimum_password_length %> caractéres no mínimo)</em>
 	      <% end %><br />
 	      <%= f.password_field :password, autocomplete: "off", class: "form-control", placeholder: "Digite sua senha" %>
             </div>
@@ -38,3 +36,20 @@
     </div>
   </div>
 </div>
+
+<% if @user.errors.any? %>
+    <% @user.errors.full_messages.each do |message| %>
+        <%= javascript_tag do %>
+            $.notify({
+                message: '<%= message %>'
+            },{
+                type: 'danger',
+                placement: {
+                    from: "top",
+                    align: "left"
+                    },
+                delay: 5000
+            })
+        <% end %>
+    <% end %>
+<% end %>

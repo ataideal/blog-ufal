@@ -28,7 +28,7 @@
         <li class="nav-item dropdown">
             <%= link_to "Categorias", "#", class: "nav-link dropdown-toggle", data: {toggle: "dropdown"} %>
             <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
-                <% @categories.each do |category| %>
+                <% Category.all.each do |category| %>
                     <li><%= link_to "#{category.description}", "#", class: "dropdown-item" %></li>
                 <% end %>
             </ul>
