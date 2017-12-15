@@ -30,6 +30,7 @@ module BlogUfal
     config.assets.precompile += %w[*.png *.jpg *.jpeg *.gif]
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
-    # -- all .rb files in that directory are automatically loaded.
+    # Include Bower components in compiled assets
+    config.assets.paths << Rails.root.join('vendor', 'assets', 'bower_components')   # -- all .rb files in that directory are automatically loaded.
   end
 end

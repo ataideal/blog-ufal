@@ -25,17 +25,29 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarCollapse">
     <ul class="navbar-nav  ml-auto">
+        <li class="nav-item dropdown">
+            <%= link_to "Categorias", "#", class: "nav-link dropdown-toggle", data: {toggle: "dropdown"} %>
+            <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
+                <% Category.all.each do |category| %>
+                    <li><%= link_to "#{category.description}", "#", class: "dropdown-item" %></li>
+                <% end %>
+            </ul>
+        </li>
+      </li>
       <% if user_signed_in?%>
-	<li class="nav-item">
-	  <%= link_to "Sair", destroy_user_session_path, method: :delete, class:"btn btn-primary btn-lg"%>
-	</li>
+        <li class="nav-item">
+          <%= link_to "#{current_user.email}", "#", class: "btn btn-link"%>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Sair", destroy_user_session_path, method: :delete, class:"btn btn-primary btn-lg"%>
+        </li>
       <% else%>
-	<li class="nav-item">
-	  <%= link_to "Login", new_user_session_path, class: "btn btn-primary btn-lg"%>
-	</li>
-	<li class="nav-item">
-	  <%= link_to "Cadastre-se", new_user_registration_path, class: "btn btn-success btn-lg"%>
-	</li>
+        <li class="nav-item">
+          <%= link_to "Login", new_user_session_path, class: "btn btn-primary btn-lg"%>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Cadastre-se", new_user_registration_path, class: "btn btn-success btn-lg"%>
+        </li>
       <% end%>
     </ul>
   </div>

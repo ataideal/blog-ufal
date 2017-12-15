@@ -1,0 +1,16 @@
+<% flash.each do |key, message| %>
+    <%= javascript_tag do %>
+        $.notify({
+            icon: 'glyphicon glyphicon-warning-sign',
+            message: "<%= message %> teste"
+        },{
+            placement: {
+                from: "top",
+                align: "left"
+                },
+            type: "<%= flash_class(key) %>",
+            delay: 2500
+        })
+    <% end %>
+
+<% end %>
