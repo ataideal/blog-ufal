@@ -5,12 +5,12 @@
         <div class="col-lg-4 col-md-6 col-12 masonry-item mb30">
             <div class="post-grid card">
                 <div class="card-img-top">
-                  <%= link_to "#" do %>
+                  <%= link_to pub_detail_path(pub) do %>
                     <%= image_tag('box/img-8.jpg', :class => 'img-fluid', :alt => "...") %>
                   <% end %>
                 </div>
                 <div class="card-body">
-                  <%= link_to "#" do %>
+                  <%= link_to pub_detail_path(pub) do %>
                     <h4><%= pub.title %></h4>
                   <% end %>
                     <p>

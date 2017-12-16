@@ -8,8 +8,7 @@
         <div class="card mb30 card-post">
           <div class="row align-items-center">
             <div class="col-12 col-md-5 align-self-center">
-              <!--<a href="blog-single.html"><img class="img-fluid" src="images/box/img-8.jpg" alt="..."></a>-->
-              <%= link_to site_pub_detail_path(pub) do %>
+              <%= link_to pub_detail_path(pub) do %>
                 <%= image_tag('box/img-8.jpg', :class => 'img-fluid', :alt => "...") %>
               <% end %>
             </div>
@@ -17,7 +16,7 @@
               <div class="card-body">
                 <h4 class="card-title font400"><%= pub.title %></h4>
                 <p class="card-text"><%= pub.description %></p>
-                <%= link_to site_pub_detail_path(pub), :class => 'font600 btn btn-underline' do %>
+                <%= link_to pub_detail_path(pub), :class => 'font600 btn btn-underline' do %>
                   Read more<i class="fa fa-angle-right"></i>
                 <% end %>
                 <!--<a class="font600 btn btn-underline" href="blog-single.html">Read more
