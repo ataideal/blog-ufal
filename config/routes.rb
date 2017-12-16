@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
   namespace :site do
     get 'home/index'
-    get 'home/show/:id', to: 'home#show', as: 'publication'
+    resources :pub_detail, only: [:show]
+    resources :categories, only: [:show]
   end
 
   namespace :admin do
