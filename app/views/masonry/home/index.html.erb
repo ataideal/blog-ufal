@@ -1,0 +1,46 @@
+<%= render partial: "layouts/masonry_shared/banner" , locals: {logo: "Masonry template"} %>
+<div class="container pt90 pb60">
+    <div class="row masonry-grid">
+      <% @pubs.each do |pub|%>
+        <div class="col-lg-4 col-md-6 col-12 masonry-item mb30">
+            <div class="post-grid card">
+                <div class="card-img-top">
+                  <%= link_to "#" do %>
+                    <%= image_tag('box/img-8.jpg', :class => 'img-fluid', :alt => "...") %>
+                  <% end %>
+                </div>
+                <div class="card-body">
+                  <%= link_to "#" do %>
+                    <h4><%= pub.title %></h4>
+                  <% end %>
+                    <p>
+                        If you use this site regularly and would like to help keep the site on the Internet, please consider donating a small sum to help pay for the hosting and bandwidth bill. 
+                    </p>
+                    <%= link_to "Continue reading...", "#" %>
+                </div><!--/.card-body-->
+                <div class="card-bottom">
+                    <ul class="list-inline">
+                        <li class="list-inline-item">
+                            <a href="#">
+                                <i class="fa fa-reply"></i> 7
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#">
+                                <i class="fa fa-comments"></i> 14
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#">
+                                <i class="fa fa-share-alt"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div><!--/.card-bottom-->
+            </div>
+        </div>
+      <% end %>
+      <%= paginate @pubs, window: 2%>
+    </div>
+</div>
+<%= render partial: "layouts/flash_messages" %>

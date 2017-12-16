@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  namespace :masonry do
+    get 'home/index'
+  end
+
   namespace :site do
     get 'home/index'
     resources :pub_detail, only: [:show]
