@@ -1,0 +1,2 @@
+module Masonry::CategoriesHelper
+end

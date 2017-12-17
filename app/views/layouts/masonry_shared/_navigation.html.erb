@@ -32,7 +32,7 @@
             <%= link_to "Categorias", "#", class: "nav-link dropdown-toggle", data: {toggle: "dropdown"} %>
             <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
                 <% Category.all.each do |category| %>
-                    <li><%= link_to "#{category.description}", site_category_path(category), class: "dropdown-item" %></li>
+                    <li><%= link_to "#{category.description}", masonry_category_path(category), class: "dropdown-item", remote: true %></li>
                 <% end %>
             </ul>
         </li>

@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   namespace :masonry do
     get 'home/index'
+    resources :categories, only: [:show]
   end
 
   namespace :site do
