@@ -1,0 +1,32 @@
+<div class="col-md-3">
+  <div class="widget">
+    <h3>Search blog</h3>
+    <form>
+      <input type="text" class="form-control" placeholder="Search &amp; hit enter">
+    </form>
+  </div><!--end widget-->
+  <div class="widget">
+    <h3>Post categories</h3>
+    <ul class="list-unstyled">
+      <li><a href="#" class="btn btn-underline">Web design</a></li>
+      <li><a href="#" class="btn btn-underline">Bootstrap4</a></li>
+      <li><a href="#" class="btn btn-underline">Angular js</a></li>
+      <li><a href="#" class="btn btn-underline">Jquery</a></li>
+    </ul>
+  </div><!--end widget-->
+<!--  <div class="widget">
+    <h3>About Author</h3>
+    <p>
+      Es un hecho establecido hace demasiado tiempo que un lector se distraerá con el contenido del texto de un sitio mientras que mira su diseño.
+    </p>
+  </div>&lt;!&ndash;end widget&ndash;&gt;-->
+  <div class="widget">
+    <h3>Tags</h3>
+    <ul class="list-inline tag-list">
+      <% @tags.each do |t| %>
+        <li><a href="#"><%= t %></a></li>
+      <% end %>
+    </ul>
+
+  </div><!--end widget-->
+</div>

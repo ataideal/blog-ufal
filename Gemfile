@@ -11,6 +11,10 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.2'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
+gem 'rails-i18n'
+gem 'acts-as-taggable-on', '~> 5.0'
+gem 'kaminari'
+
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'capybara', '~> 2.13'
@@ -27,11 +31,13 @@ gem 'administrate'
 gem 'bootstrap', '~> 4.0.0.alpha6'
 gem 'bourbon'
 gem 'devise'
+gem 'devise-i18n'
 gem 'high_voltage'
 gem 'pg'
 gem 'pundit'
 group :development do
   gem 'better_errors'
+  gem 'rails-erd'
   gem 'capistrano', '~> 3.0.1'
   gem 'capistrano-bundler'
   gem 'capistrano-rails', '~> 1.1.0'
@@ -42,7 +48,7 @@ group :development do
 end
 group :development, :test do
   gem 'factory_bot_rails'
-  gem 'faker'
+  gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
   gem 'pry-rails'
   gem 'pry-rescue'
   gem 'rspec-rails'

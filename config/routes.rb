@@ -1,11 +1,20 @@
 Rails.application.routes.draw do
-  namespace :admin do
-    resources :users
-
-    root to: "users#index"
+  namespace :site do
+    get 'home/index'
+    resources :pub_detail, only: [:show]
+    resources :categories, only: [:show]
   end
 
-  root to: 'visitors#index'
+  namespace :admin do
+    resources :users
+    resources :publications
+    resources :tags
+    resources :categories
+    root to: "users#index"
+
+  end
+
+  root to: 'site/home#index'
   devise_for :users
   resources :users
 end

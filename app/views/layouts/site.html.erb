@@ -1,0 +1,60 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <!-- Bootstrap -->
+  <%=stylesheet_link_tag "versa/css/plugins/plugins"%>
+  <%=stylesheet_link_tag "versa/plugins/masterslider/style/masterslider"%>
+  <!--contact form css -->
+  <%=stylesheet_link_tag "versa/contact-form/css/smart-forms"%>
+  <!--dz parallaxer -->
+  <%=stylesheet_link_tag "versa/plugins/dzsparallaxer/dzsparallaxer"%>
+  <%=stylesheet_link_tag "versa/plugins/dzsparallaxer/scroller"%>
+  <%=stylesheet_link_tag "versa/plugins/dzsparallaxer/advancedscroller/plugin"%>
+  <!-- load css for cubeportfolio -->
+  <%=stylesheet_link_tag "versa/plugins/cubeportfolio/css/cubeportfolio.min"%>
+  <!--main css file -->
+  <%=stylesheet_link_tag "versa/css/style"%>
+
+  <!-- link rel="stylesheet" href="assets/css/style.css" -->
+  <title>Blog-ufal</title>
+  <%= csrf_meta_tags %>
+
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+</head>
+
+<body>
+<%= render "layouts/site_shared/navigationbar" %>
+<%= yield %>
+<%= render "layouts/site_shared/footer" %>
+
+<!-- Plugins first, then custom js file -->
+<%=javascript_include_tag "versa/js/bundle/bundle.js"%>
+<%=javascript_include_tag "versa/js/versa.custom.js"%>
+<!-- Master Slider -->
+<%=javascript_include_tag "versa/plugins/masterslider/masterslider.min.js"%>
+<!--dz parallaxer-->
+<%=javascript_include_tag "versa/plugins/dzsparallaxer/dzsparallaxer.js"%>
+<%=javascript_include_tag "versa/plugins/dzsparallaxer/scroller.js"%>
+<%=javascript_include_tag "versa/plugins/dzsparallaxer/advancedscroller/plugin.js"%>
+<%=javascript_include_tag "versa/js/master-slider-home.js"%>
+<!-- load cubeportfolio -->
+<%=javascript_include_tag "versa/plugins/cubeportfolio/js/jquery.cubeportfolio.min.js"%>
+<!-- init cubeportfolio -->
+<%=javascript_include_tag "versa/js/cube-portfolio-home.js"%>
+<!--smart-form script-->
+<%=javascript_include_tag "versa/contact-form/js/jquery.form.min.js"%>
+<%=javascript_include_tag "versa/contact-form/js/jquery.validate.min.js"%>
+<%=javascript_include_tag "versa/contact-form/js/additional-methods.min.js"%>
+<%=javascript_include_tag "versa/contact-form/js/smart-form.js"%>
+
+<%=javascript_include_tag "http://maps.google.com/maps/api/js?key=AIzaSyCyPyhRsYqrgI-MHCljk7WKXEP0u8Y-D3A"%>
+<%=javascript_include_tag "versa/js/google-map.js"%>
+</body>
+</html>

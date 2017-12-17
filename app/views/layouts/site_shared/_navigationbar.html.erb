@@ -1,0 +1,55 @@
+<nav class="navbar navbar-expand-lg navbar-light navbar-transparent navbar-sticky">
+  <div class="navbar-right-col">
+    <ul class="list-inline">
+
+      <li class="list-inline-item">
+        <a href="shop-cart.html"><i class="fa fa-shopping-basket"></i> <span class="badge badge-primary">2</span></a>
+      </li>
+      <li class="list-inline-item dropdown dropdown-search">
+        <a href="#" data-toggle="dropdown" class="dropdown-toggle"><i class="fa fa-search"></i></a>
+        <div class="dropdown-menu search-dropdown-menu dropdown-menu-left">
+          <form role="form">
+            <input type="text" class="form-control" placeholder="Search...">
+            <button type="submit" class="btn-nav-search"><i class="fa fa-search"></i></button>
+          </form>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <%= link_to site_home_index_path, class: "navbar-brand" do %>
+    <img src="<%= asset_path("logo-light.png") %>" alt="" class="logo-visible-desktop logo-default">
+    <img src="<%= asset_path("logo.png") %>" alt="" class="logo-hidden-desktop logo-scroll">
+  <% end %>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarCollapse" style="margin-bottom: 25px">
+    <ul class="navbar-nav  ml-auto">
+        <li class="nav-item dropdown">
+            <%= link_to "Categorias", "#", class: "nav-link dropdown-toggle", data: {toggle: "dropdown"} %>
+            <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
+                <% Category.all.each do |category| %>
+                    <li><%= link_to "#{category.description}", site_category_path(category), class: "dropdown-item" %></li>
+                <% end %>
+            </ul>
+        </li>
+      </li>
+      <% if user_signed_in?%>
+        <li class="nav-item">
+          <%= link_to "#{current_user.email}", "#", class: "btn btn-link"%>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Sair", destroy_user_session_path, method: :delete, class:"btn btn-primary btn-lg"%>
+        </li>
+      <% else%>
+        <li class="nav-item">
+          <%= link_to "Login", new_user_session_path, class: "btn btn-primary btn-lg"%>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Cadastre-se", new_user_registration_path, class: "btn btn-success btn-lg"%>
+        </li>
+      <% end%>
+    </ul>
+  </div>
+</nav>

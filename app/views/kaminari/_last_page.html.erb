@@ -1,0 +1,14 @@
+<%# Link to the "Last" page
+  - available local variables
+    url:           url to the last page
+    current_page:  a page object for the currently displayed page
+    total_pages:   total number of pages
+    per_page:      number of items to fetch per page
+    remote:        data-remote
+-%>
+
+<% unless current_page.last? %>
+  <%= link_to  url , rel: 'last?', remote: remote, :class => 'btn btn-light float-right', :style=>"vertical-align:middle" do %>
+    <%=t('views.pagination.last').html_safe%> <i class="fa fa-angle-right"></i>
+  <% end %>
+<% end %>
