@@ -13,9 +13,7 @@
                   <%= link_to pub_detail_path(pub) do %>
                     <h4><%= pub.title %></h4>
                   <% end %>
-                    <p>
-                        If you use this site regularly and would like to help keep the site on the Internet, please consider donating a small sum to help pay for the hosting and bandwidth bill. 
-                    </p>
+                    <p><%= pub.description %></p>
                     <%= link_to "Continue reading...", "#" %>
                 </div><!--/.card-body-->
                 <div class="card-bottom">
