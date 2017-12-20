@@ -15,10 +15,26 @@
 #admin  = CreateAdminService.new.call
 #puts 'CREATED ADMIN USER: ' << admin.email
 
-user = FactoryBot.create(:user)
-category = FactoryBot.create(:category)
+puts "Criando usuário default [  ]"
+default_user = FactoryBot.create(:user, name: "user", email: "user@user.com", password: "123123")
+puts "Criando usuário default [ X ]"
 
-100.times do
-  FactoryBot.create(:publication,user: user,category: category)
+puts "Criando categorias fake [  ]"
+15.times do 
+  FactoryBot.create(:category)
 end
+puts "Criando categorias fake [ X ]"
+
+
+puts "Criando usuários fake [   ]"
+20.times do 
+  FactoryBot.create(:user)
+end
+puts "Criando usuários fake [ X ]"
+
+puts "Criando publicações fake [   ]"
+100.times do
+  FactoryBot.create(:publication,user: User.all.sample, category: Category.all.sample)
+end
+puts "Criando publicações fake [ X ]"
 

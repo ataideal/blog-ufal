@@ -1,10 +1,14 @@
 Rails.application.routes.draw do
+  mount Ckeditor::Engine => '/ckeditor'
   namespace :masonry do
     get 'home/index'
     resources :categories, only: [:show]
   end
 
   namespace :site do
+    namespace :profile do
+      resources :publications, except: [:destroy, :show]
+    end
     get 'home/index'
     resources :categories, only: [:show]
   end
