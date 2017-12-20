@@ -1,2 +1,0 @@
-module Site::PubDetailHelper
-end

@@ -14,6 +14,8 @@ gem 'jbuilder', '~> 2.5'
 gem 'rails-i18n'
 gem 'acts-as-taggable-on', '~> 5.0'
 gem 'kaminari'
+gem 'ckeditor'
+gem 'paperclip'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

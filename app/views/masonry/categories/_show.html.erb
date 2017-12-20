@@ -1,0 +1,44 @@
+<div class="row">
+  <h2>Filtrado por: <%= @category.description %></h2>
+</div>
+<div class="row">
+<% @pubs.each do |pub|%>
+  <div class="col-lg-4 col-md-6 col-12 masonry-item mb30">
+      <div class="post-grid card">
+          <div class="card-img-top">
+            <%= link_to pub_detail_path(pub) do %>
+              <%= image_tag('box/img-8.jpg', :class => 'img-fluid', :alt => "...") %>
+            <% end %>
+          </div>
+          <div class="card-body">
+            <%= link_to pub_detail_path(pub) do %>
+              <h4><%= pub.title %></h4>
+            <% end %>
+                <p><%= pub.description %></p>
+              <%= link_to "Continue reading...", "#" %>
+          </div><!--/.card-body-->
+          <div class="card-bottom">
+              <ul class="list-inline">
+                  <li class="list-inline-item">
+                      <a href="#">
+                          <i class="fa fa-reply"></i> 7
+                      </a>
+                  </li>
+                  <li class="list-inline-item">
+                      <a href="#">
+                          <i class="fa fa-comments"></i> 14
+                      </a>
+                  </li>
+                  <li class="list-inline-item">
+                      <a href="#">
+                          <i class="fa fa-share-alt"></i>
+                      </a>
+                  </li>
+              </ul>
+          </div><!--/.card-bottom-->
+      </div>
+  </div>
+<% end %>
+<%= paginate @pubs, window: 2%>
+  
+</div>

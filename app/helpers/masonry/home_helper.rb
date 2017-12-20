@@ -1,0 +1,2 @@
+module Masonry::HomeHelper
+end

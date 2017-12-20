@@ -7,8 +7,10 @@
         <div class="blog-meta">
           <h2><%= @pub.title %></h2>
           <ul class="list-inline">
-            <li class="list-inline-item"><i class="fa fa-user"></i> <a href="#" class="btn btn-underline">Admin</a></li>
-            <li class="list-inline-item"><i class="fa fa-calendar-check-o"></i> 22 Feb. 2016</li>
+            <%= link_to "#" do %>
+              <li class="list-inline-item"><i class="fa fa-user"></i><%= "#{@pub.user.name}" %></li>
+            <% end %>
+            <li class="list-inline-item"><i class="fa fa-calendar-check-o"></i><%=@pub.created_at %></li>
             <li class="list-inline-item"><i class="fa fa-tag"></i> <a href="#" class="btn btn-underline">Startups</a>
             </li>
           </ul>
@@ -17,23 +19,7 @@
           <img src="images/blog1.jpg" alt="" class="img-fluid">
         </div>
         <div class="post-content">
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae ut ratione similique temporibus tempora
-            dicta soluta? Qui hic, voluptatem nemo quo corporis dignissimos voluptatum debitis cumque fugiat mollitia
-            quasi quod. Repudiandae possimus quas odio nisi optio asperiores, vitae error laudantium, ratione odit ipsa
-            obcaecati debitis deleniti minus, illo maiores placeat omnis magnam.
-          </p>
-          <blockquote>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae ut ratione similique
-            temporibus tempora dicta soluta? Qui hic, voluptatem nemo quo corporis dignissimos voluptatum debitis cumque
-            fugiat mollitia quasi quod.<br><em>John Doe</em></blockquote>
-          <br>
-          <h4>In hac habitasse platea dictumst.</h4>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae ut ratione similique temporibus tempora
-            dicta soluta? Qui hic, voluptatem nemo quo corporis dignissimos voluptatum debitis cumque fugiat mollitia
-            quasi quod. Repudiandae possimus quas odio nisi optio asperiores, vitae error laudantium, ratione odit ipsa
-            obcaecati debitis deleniti minus, illo maiores placeat omnis magnam.
-          </p>
+          <%= raw @pub.content %>
           <ul class="list-inline share">
             <li class="list-inline-item">Share it:</li>
             <li class="list-inline-item">

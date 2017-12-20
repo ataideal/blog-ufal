@@ -1,0 +1,58 @@
+<%= render partial: "layouts/site_shared/banner", locals: {logo: "Criando nova publicação"} %>
+
+<% if @publication.errors.any? %>
+    <% @publication.errors.full_messages.each do |message| %>
+        <%= javascript_tag do %>
+            $.notify({
+                message: '<%= message %>'
+            },{
+                type: 'danger',
+                placement: {
+                    from: "top",
+                    align: "left"
+                    },
+                delay: 5000
+            })
+        <% end %>
+    <% end %>
+<% end %>
+
+<div class="container pt90 pb60">
+  <div class="row">
+    <div class="col-md-9 mb30">
+      <div class="post-full">
+        <%= form_for([:site, :profile, @publication]) do |f| %>
+          <h1>Preencha os campos abaixo</h1>
+          <div class="row">
+            <div class="form-group col-md-6">
+              <%= f.label :title %>
+              <%= f.text_field :title, class:"form-control", placeholder: "Digite o título da sua publicação" %>
+            </div>
+          </div>
+          <div class="row">
+            <div class="form-group col-md-12">
+              <%= f.label :description %>
+              <%= f.text_area :description, class:"form-control" %>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="form-group col-md-12">
+              <%= f.label :content %>
+              <%= f.cktext_area :content %>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="form-group col-md-6">
+              <%= f.label :category %>
+              <%= f.collection_select :category_id, Category.all, :id, :description, {}, { class: "form-control" } %>
+            </div>
+          </div>
+
+          <%= submit_tag "Enviar", class: "btn btn-lg btn-rounded btn-primary mb5" %>
+        <% end %>
+      </div><!--post end-->
+    </div>
+  </div>
+</div>

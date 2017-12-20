@@ -1,0 +1,3 @@
+module PubDetail::ShowHelper
+end
+
