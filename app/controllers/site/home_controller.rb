@@ -9,7 +9,8 @@ class Site::HomeController < SiteController
     else
       @pubs = Pub.all.page params[:page]
     end
-    @tags = ActsAsTaggableOn::Tag.most_used(10).map(&:name)
+    @tags = ActsAsTaggableOn::Tag.most_used(10).map(&:name) #this map is used to avoid bugs on the html
+                                                            #because the format of tags was inconsistent with pub_detail_controller
   end
 
   def show
