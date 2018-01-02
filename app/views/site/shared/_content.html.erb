@@ -1,0 +1,55 @@
+<div class="container pt90 pb60">
+  <div class="row">
+    <div id="index_content" class="col-md-9 mb40">
+      <!--post card-->
+      <% @pubs.each do |pub| %>
+        <div class="card mb30 card-post">
+          <div class="row align-items-center">
+            <div class="col-12 col-md-5 align-self-center">
+              <%= link_to pub_detail_path(pub) do %>
+                <%= image_tag('box/img-8.jpg', :class => 'img-fluid', :alt => "...") %>
+              <% end %>
+            </div>
+            <div class="col-12 col-md-7">
+              <div class="card-body">
+                <h4 class="card-title font400"><%= pub.title %></h4>
+                <p class="card-text"><%= pub.description %></p>
+                <%= link_to pub_detail_path(pub), :class => 'font600 btn btn-underline' do %>
+                  Read more<i class="fa fa-angle-right"></i>
+                <% end %>
+                <!--<a class="font600 btn btn-underline" href="blog-single.html">Read more
+                  <i class="fa fa-angle-right"></i></a>-->
+              </div>
+              <div class="card-bottom">
+                <ul class="list-inline">
+                  <li class="list-inline-item">
+                    <a href="#">
+                      <i class="fa fa-reply"></i> 7
+                    </a>
+                  </li>
+                  <li class="list-inline-item">
+                    <a href="#">
+                      <i class="fa fa-comments"></i> 14
+                    </a>
+                  </li>
+                  <li class="list-inline-item">
+                    <a href="#">
+                      <i class="fa fa-share-alt"></i>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div><!--post card-->
+      <% end %>
+      <!--post card-->
+      <!--<nav class="clearfix mt30">
+        <a class="btn btn-light float-right" href="#">Older <i class="fa fa-angle-right"></i></a>
+        <a class="btn btn-light disabled"><i class="fa fa-angle-left"></i> Newer</a>
+      </nav>-->
+      <%= paginate @pubs%>
+    </div>
+    <%= render "layouts/site_shared/sidebar" %>
+  </div>
+</div>
