@@ -36,7 +36,43 @@
                 Linkedin</a></li>
           </ul>
         </div>
-      </div><!--post end-->
+      </div><!--post end--> 
+      <hr class="mb30">
+      <h4 class="font600 h5 mb30">Recommended Posts</h4>
+      <%if @recommended.empty? %>
+        <div>No recommended posts</div>
+      <%else%>
+        <div class="row">
+            <% @recommended.each do |pub| %>
+              <div class="col-lg-4 mb20">
+                <div class="card mb20 card-post">
+                  <%= link_to pub_detail_path(pub) do %>
+                    <%= image_tag('box/img-8.jpg', :class => 'img-fluid', :alt => "...") %>
+                  <% end %>
+                  <div class="card-body">
+                    <%= link_to pub_detail_path(pub) do %>
+                      <h4 class="card-title font400"><%=  pub.title %></h4>
+                    <% end %>
+                    
+                    <!--<p class="card-text"><%= pub.description %></p>-->
+                    <%= link_to pub_detail_path(pub), :class => 'font600 btn btn-underline' do %>
+                      Read more<i class="fa fa-angle-right"></i>
+                    <% end %>
+                    <!--<a class="font600 btn btn-underline" href="<%= pub_detail_path(pub) %>">Read more <i class="fa fa-angle-right"></i></a>-->
+                      
+                  </div>
+                  <div class="card-bottom">
+                    <ul class="list-inline">
+                      <li class="list-inline-item"><a href="#"><i class="fa fa-reply"></i> 7 </a></li>
+                      <li class="list-inline-item"><a href="#"><i class="fa fa-comments"></i> 14</a></li>
+                      <li class="list-inline-item"><a href="#"><i class="fa fa-share-alt"></i></a></li>
+                    </ul>
+                  </div>
+                </div><!--card-->
+              </div>
+            <% end %>
+        </div><!--end recommendations-->
+      <% end %>
       <hr class="mb30">
       <div class="comments">
         <h4 class="font600 h5 mb40">4 comments</h4>
