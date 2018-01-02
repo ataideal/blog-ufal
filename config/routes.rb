@@ -10,6 +10,7 @@ Rails.application.routes.draw do
       resources :publications, except: [:destroy, :show]
     end
     get 'home/index'
+    get 'search', to: 'search#pubs'
     resources :categories, only: [:show]
   end
 
