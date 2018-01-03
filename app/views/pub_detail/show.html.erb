@@ -1,4 +1,4 @@
-<%= render partial: "layouts/site_shared/banner", locals: {logo: "Blog Detail"} %>
+<%= render partial: "layouts/site_shared/banner", locals: {logo: "Detalhes da publicação"} %>
 
 <div class="container pt90 pb60">
   <div class="row">
@@ -21,26 +21,23 @@
         <div class="post-content">
           <%= raw @pub.content %>
           <ul class="list-inline share">
-            <li class="list-inline-item">Share it:</li>
+            <li class="list-inline-item">Compartilhe com:</li>
             <li class="list-inline-item">
-              <a class="btn btn-underline" href="javascript:void(0)" data-toggle="tooltip" title="" data-original-title="Facebook"><i class="fa fa-facebook"></i>
-                Facebook</a></li>
+              <%= link_to "https://www.facebook.com/sharer/sharer.php?u=#{request.original_url}", { :class => 'btn btn-underline', 'data-toggle' => 'tooltip', :title => '', 'data-original-title' => 'Facebook', :target => '_blank' } do %>
+                <i class="fa fa-facebook"></i> Facebook
+              <% end %>
+            </li>
             <li class="list-inline-item">
-              <a class="btn btn-underline" href="javascript:void(0)" data-toggle="tooltip" title="" data-original-title="Twitter"><i class="fa fa-twitter"></i>
-                Twitter</a></li>
-            <li class="list-inline-item">
-              <a class="btn btn-underline" href="javascript:void(0)" data-toggle="tooltip" title="" data-original-title="Pinterest"><i class="fa fa-pinterest"></i>
-                Pinterest</a></li>
-            <li class="list-inline-item">
-              <a class="btn btn-underline" href="javascript:void(0)" data-toggle="tooltip" title="" data-original-title="Linkedin"><i class="fa fa-linkedin"></i>
-                Linkedin</a></li>
+              <%= link_to "http://twitter.com/home?status=#{request.original_url}", { :class => 'btn btn-underline', 'data-toggle' => 'tooltip', :title => '', 'data-original-title' => 'Twitter', :target => '_blank' } do %>
+                <i class="fa fa-twitter"></i> Twitter
+              <% end %>
           </ul>
         </div>
       </div><!--post end--> 
       <hr class="mb30">
-      <h4 class="font600 h5 mb30">Recommended Posts</h4>
+      <h4 class="font600 h5 mb30">Publicações recomendadas</h4>
       <%if @recommended.empty? %>
-        <div>No recommended posts</div>
+        <div>Nenhuma publicação recomendada</div>
       <%else%>
         <div class="row">
             <% @recommended.each do |pub| %>
