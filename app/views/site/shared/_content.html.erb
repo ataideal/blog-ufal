@@ -7,7 +7,7 @@
           <div class="row align-items-center">
             <div class="col-12 col-md-5 align-self-center">
               <%= link_to pub_detail_path(pub) do %>
-                <%= image_tag('box/img-8.jpg', :class => 'img-fluid', :alt => "...") %>
+                <%= image_tag(pub.picture.url, :class => 'img-fluid', :alt => "...") %>
               <% end %>
             </div>
             <div class="col-12 col-md-7">

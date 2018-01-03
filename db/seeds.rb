@@ -34,7 +34,7 @@ puts "Criando usuários fake [ X ]"
 
 puts "Criando publicações fake [   ]"
 100.times do
-  FactoryBot.create(:publication,user: User.all.sample, category: Category.all.sample)
+  FactoryBot.create(:publication,user: User.all.sample, category: Category.all.sample, picture: File.new(Rails.root.join('vendor', 'assets', 'images', 'box', 'img-8.jpg'), 'r'))
 end
 puts "Criando publicações fake [ X ]"
 

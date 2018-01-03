@@ -17,6 +17,6 @@ class Site::Profile::PublicationsController < Site::ProfileController
   private
 
   def params_pub
-    params.require(:publication).permit(:id, :title, :description, :content, :category_id)
+    params.require(:publication).permit(:id, :title, :description, :content, :category_id, :picture)
   end
 end
