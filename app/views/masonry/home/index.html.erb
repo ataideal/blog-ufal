@@ -1,46 +1,56 @@
-<%= render partial: "layouts/masonry_shared/banner" , locals: {logo: "Masonry template"} %>
-<div class="container pt90 pb60">
-    <div id="index_content" class="row masonry-grid">
-      <% @pubs.each do |pub|%>
-        <div class="col-lg-4 col-md-6 col-12 masonry-item mb30">
-            <div class="post-grid card">
-                <div class="card-img-top">
-                  <%= link_to pub_detail_path(pub) do %>
-                    <%= image_tag('box/img-8.jpg', :class => 'img-fluid', :alt => "...") %>
-                  <% end %>
-                </div>
-                <div class="card-body">
-                  <%= link_to pub_detail_path(pub) do %>
-                    <h4><%= pub.title %></h4>
-                  <% end %>
-                    <p>
-                        If you use this site regularly and would like to help keep the site on the Internet, please consider donating a small sum to help pay for the hosting and bandwidth bill. 
-                    </p>
-                    <%= link_to "Continue reading...", "#" %>
-                </div><!--/.card-body-->
-                <div class="card-bottom">
-                    <ul class="list-inline">
-                        <li class="list-inline-item">
-                            <a href="#">
-                                <i class="fa fa-reply"></i> 7
-                            </a>
-                        </li>
-                        <li class="list-inline-item">
-                            <a href="#">
-                                <i class="fa fa-comments"></i> 14
-                            </a>
-                        </li>
-                        <li class="list-inline-item">
-                            <a href="#">
-                                <i class="fa fa-share-alt"></i>
-                            </a>
-                        </li>
-                    </ul>
-                </div><!--/.card-bottom-->
+<%= render partial: "layouts/masonry_shared/banner", locals: {logo: "Masonry template"} %>
+<!--<li class="container pt90 pb60">-->
+<!--<li id="index_content" class="row masonry-grid">-->
+
+<div class="container" style="margin-top: 20px">
+  <div class="grid" data-masonry='{ "itemSelector": ".grid-item", "columnWidth": ".grid-sizer", "percentPosition": true }'>
+    <div class="grid-sizer"></div>
+    <% @pubs.each_with_index do |pub, i| %>
+      <div class="grid-item <%= @classes[i] %>">
+        <div class="card mb30 card-post" style="display: flex">
+            <div class=" align-self-center">
+              <%= link_to pub_detail_path(pub) do %>
+                <%= image_tag('box/img-8.jpg', :class => 'img-fluid', :alt => "...") %>
+              <% end %>
             </div>
+            <div class="">
+              <div class="card-body">
+                <h4 class="card-title font400"><%= pub.title %></h4>
+                <p class="card-text"><%= pub.description %></p>
+                <%= link_to pub_detail_path(pub), :class => 'font600 btn btn-underline' do %>
+                  Read more<i class="fa fa-angle-right"></i>
+                <% end %>
+                <!--<a class="font600 btn btn-underline" href="blog-single.html">Read more
+                  <i class="fa fa-angle-right"></i></a>-->
+              </div>
+              <div class="card-bottom">
+                <ul class="list-inline">
+                  <li class="list-inline-item">
+                    <a href="#">
+                      <i class="fa fa-reply"></i> 7
+                    </a>
+                  </li>
+                  <li class="list-inline-item">
+                    <a href="#">
+                      <i class="fa fa-comments"></i> 14
+                    </a>
+                  </li>
+                  <li class="list-inline-item">
+                    <a href="#">
+                      <i class="fa fa-share-alt"></i>
+                    </a>
+                  </li>
+                </ul>
+            </div>
+          </div>
         </div>
-      <% end %>
-      <%= paginate @pubs, window: 2%>
-    </div>
+      </div>
+    <% end %>
+  </div>
+
 </div>
+
+<%= paginate @pubs, window: 2 %>
+<!--</li>-->
+<!--</li>-->
 <%= render partial: "layouts/flash_messages" %>
